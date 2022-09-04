@@ -2,6 +2,7 @@
 <head>
 </head>
 <body bgcolor="#fff">
+alicegear_minesweeper
 <div id=Retry style="position:absolute;background-image:url('hexBuff.png');background-size: 64px;height:64px;width:64px;text-align:center;"onClick="Retry();">RETRY</div>
 <div id=info style="position:absolute;left:90px;top:24px;"></div>
 <div id=map></div>
@@ -14,16 +15,16 @@ font-weight:900;
 font-style:italic;
 color:#FFF;
 -webkit-text-stroke: 3px #000;
-font-family: Times New Roman, '‚l‚r ‚oƒSƒVƒbƒN';"></div>
+font-family: Times New Roman, 'ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯';"></div>
 </body>
 
 <script>
-var map_x=15,map_y=10;//ƒ}ƒbƒv‚ÌL‚³
-var mine_max=15;//ƒ}ƒCƒ“‚Ì”
-var open_num;//ŠJ‚¯‚½”
+var map_x=15,map_y=10;//ãƒãƒƒãƒ—ã®åºƒã•
+var mine_max=15;//ãƒã‚¤ãƒ³ã®æ•°
+var open_num;//é–‹ã‘ãŸæ•°
 var isGameOver;
 var map=[], mine=[], prog=[];
-function init(){//‰Šú‰»
+function init(){//åˆæœŸåŒ–
 	console.log("init");
 	open_num=0;
 	isGameOver=0;
@@ -46,7 +47,7 @@ function init(){//‰Šú‰»
 	//document.getElementById('Retry').style.top=map_y*60;
 	updateInfo();
 }
-function disp(){//”Õ–Ê•\¦
+function disp(){//ç›¤é¢è¡¨ç¤º
 	console.log("disp");
 	document.getElementById('map').innerHTML="";
 	for(var y=0;y<map_y;y++){
@@ -73,7 +74,7 @@ function disp(){//”Õ–Ê•\¦
 		document.getElementById('map').innerHTML+="<br>";
 	}
 }
-function deploy(x,y){//ƒ}ƒCƒ“¶¬
+function deploy(x,y){//ãƒã‚¤ãƒ³ç”Ÿæˆ
 	console.log("deploy:"+x+"_"+y);
 	if(x<0||x>=map_x||y<0||y>=map_y)return;
 	mine[x][y]=1;
@@ -90,7 +91,7 @@ function deploy(x,y){//ƒ}ƒCƒ“¶¬
 		if(0<=y+yy<map_y)map[x-1][y+yy]++;
 	}
 }
-function deploySub(x,y){//ƒ}ƒCƒ“Á‹
+function deploySub(x,y){//ãƒã‚¤ãƒ³æ¶ˆå»
 	console.log("deploySub:"+x+"_"+y);
 	if(x<0||x>=map_x||y<0||y>=map_y)return;
 	if(mine[x][y]==0)return;
@@ -108,10 +109,10 @@ function deploySub(x,y){//ƒ}ƒCƒ“Á‹
 		if(0<=y+yy<map_y)map[x-1][y+yy]--;
 	}
 }
-function getRandomInt(max){//—”
+function getRandomInt(max){//ä¹±æ•°
 	return Math.floor(Math.random() * max);
 }
-function deploy_main(){//ƒ}ƒCƒ“¶¬ƒƒCƒ“
+function deploy_main(){//ãƒã‚¤ãƒ³ç”Ÿæˆãƒ¡ã‚¤ãƒ³
 	for(var i=0;i<mine_max;i++){
 		x=getRandomInt(map_x);
 		y=getRandomInt(map_y);
@@ -119,7 +120,7 @@ function deploy_main(){//ƒ}ƒCƒ“¶¬ƒƒCƒ“
 		if(mine[x][y]==0)deploy(x,y);
 	}
 }
-function startPoint(x,y){//ƒXƒ^[ƒgˆÊ’u‚Ìƒ}ƒCƒ“œ‹
+function startPoint(x,y){//ã‚¹ã‚¿ãƒ¼ãƒˆä½ç½®ã®ãƒã‚¤ãƒ³é™¤å»
 	console.log("startPoint:"+x+"_"+y);
 	if(mine[x][y]==1){
 		deploySub(x,y);
@@ -132,7 +133,7 @@ function startPoint(x,y){//ƒXƒ^[ƒgˆÊ’u‚Ìƒ}ƒCƒ“œ‹
 	}
 	disp();
 }
-function hexLock(x,y){//ƒwƒNƒXƒƒbƒN
+function hexLock(x,y){//ãƒ˜ã‚¯ã‚¹ãƒ­ãƒƒã‚¯
 	console.log("hexLock:"+x+"_"+y);
 	if(isGameOver!=0)return false;
 	if(prog[x][y]==2){
@@ -145,7 +146,7 @@ function hexLock(x,y){//ƒwƒNƒXƒƒbƒN
 	}
 	return false;
 }
-function hexOpen(x,y){//ƒwƒNƒXƒI[ƒvƒ“
+function hexOpen(x,y){//ãƒ˜ã‚¯ã‚¹ã‚ªãƒ¼ãƒ—ãƒ³
 	console.log("hexOpen:"+x+"_"+y);
 	if(isGameOver!=0)return;
 	if(prog[x][y]!=0)return;
@@ -155,7 +156,7 @@ function hexOpen(x,y){//ƒwƒNƒXƒI[ƒvƒ“
 		document.getElementById(x+"_"+y).src="hexOut.png";
 		isGameOver=1;
 		document.getElementById("GameClear").style.display="";
-		document.getElementById("GameClear").innerHTML="ìí‘±s•s‰Â";
+		document.getElementById("GameClear").innerHTML="ä½œæˆ¦ç¶šè¡Œä¸å¯";
 	}else{
 		if(map[x][y]==0)document.getElementById(x+"_"+y).src="hexOpen.png";
 		else document.getElementById(x+"_"+y).src="hexOpenSide.png";
@@ -182,14 +183,14 @@ function isGameClear(){
 	if(open_num>=map_x*map_y-mine_max){
 		isGameOver=2;
 		document.getElementById("GameClear").style.display="";
-		document.getElementById("GameClear").innerHTML="ìíI—¹";
+		document.getElementById("GameClear").innerHTML="ä½œæˆ¦çµ‚äº†";
 	}
 }
-function updateInfo(){//î•ñXV
-	info="c‚èƒwƒNƒX:"+(map_x*map_y-open_num)+" ƒ}ƒCƒ“‡Œv:"+mine_max;
+function updateInfo(){//æƒ…å ±æ›´æ–°
+	info="æ®‹ã‚Šãƒ˜ã‚¯ã‚¹:"+(map_x*map_y-open_num)+" ãƒã‚¤ãƒ³åˆè¨ˆ:"+mine_max;
 	document.getElementById("info").innerHTML=info;
 }
-function Retry(){//ƒŠƒgƒ‰ƒC
+function Retry(){//ãƒªãƒˆãƒ©ã‚¤
 	init();
 	deploy_main();
 	disp();

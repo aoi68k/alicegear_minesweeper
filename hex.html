@@ -1,5 +1,21 @@
 <html>
 <head>
+</head>
+<body bgcolor="#fff">
+alicegear_minesweeper
+<div id=Retry style="position:absolute;background-image:url('hexBuff.png');background-size: 64px;height:64px;width:64px;text-align:center;"onClick="Retry();">RETRY</div>
+<div id=info style="position:absolute;left:90px;top:24px;"></div>
+<div id=map></div>
+<div id=GameClear style="display:none;
+position:absolute;
+vertical-align:middle;
+text-align:center;
+font-size:48pt;
+font-weight:900;
+font-style:italic;
+color:#FFF;
+-webkit-text-stroke: 3px #000;
+font-family: Times New Roman, 'ＭＳ Ｐゴシック';"></div>
 <script>
 var map_x=15,map_y=10;//マップの広さ
 var mine_max=15;//マインの数
@@ -181,21 +197,5 @@ function Retry(){//リトライ
 Retry();
 //----------
 </script>
-</head>
-<body bgcolor="#fff">
-alicegear_minesweeper
-<div id=Retry style="position:absolute;background-image:url('hexBuff.png');background-size: 64px;height:64px;width:64px;text-align:center;"onClick="Retry();">RETRY</div>
-<div id=info style="position:absolute;left:90px;top:24px;"></div>
-<div id=map></div>
-<div id=GameClear style="display:none;
-position:absolute;
-vertical-align:middle;
-text-align:center;
-font-size:48pt;
-font-weight:900;
-font-style:italic;
-color:#FFF;
--webkit-text-stroke: 3px #000;
-font-family: Times New Roman, 'ＭＳ Ｐゴシック';"></div>
 </body>
 </html>

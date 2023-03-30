@@ -1,2 +1,2 @@
 # alicegear_minesweeper
-https://aoi68k.github.io/alicegear_minesweeper/hed.html
+https://aoi68k.github.io/alicegear_minesweeper/hex.html
